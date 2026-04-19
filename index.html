@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>개발 · 디자인 — 랜딩</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+KR:wght@400;500;600;700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0a0a0c;
+      --bg-elevated: #12121a;
+      --surface: rgba(255, 255, 255, 0.04);
+      --border: rgba(255, 255, 255, 0.08);
+      --text: #f4f4f5;
+      --muted: #a1a1aa;
+      --dim: #71717a;
+      --accent: #a78bfa;
+      --accent-soft: rgba(167, 139, 250, 0.15);
+      --mint: #34d399;
+      --mint-soft: rgba(52, 211, 153, 0.12);
+      --radius: 14px;
+      --font-sans: "Sora", "Noto Sans KR", system-ui, sans-serif;
+      --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* 배경 그리드 + 그라데이션 */
+    .bg-layer {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      background:
+        radial-gradient(ellipse 80% 50% at 50% -20%, rgba(167, 139, 250, 0.22), transparent),
+        radial-gradient(ellipse 60% 40% at 100% 50%, rgba(52, 211, 153, 0.08), transparent),
+        radial-gradient(ellipse 50% 30% at 0% 80%, rgba(167, 139, 250, 0.06), transparent);
+    }
+
+    .bg-grid {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      background-size: 64px 64px;
+      mask-image: radial-gradient(ellipse 70% 70% at 50% 30%, black 20%, transparent 70%);
+    }
+
+    .wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 1.5rem 4rem;
+    }
+
+    /* 네비 */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.5rem 0 3rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .logo {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+    }
+
+    .logo span {
+      color: var(--accent);
+    }
+
+    nav a {
+      font-size: 0.85rem;
+      color: var(--muted);
+      text-decoration: none;
+      margin-left: 1.5rem;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: var(--text);
+    }
+
+    /* 히어로 */
+    .hero {
+      padding: 4rem 0 5rem;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--mint);
+      background: var(--mint-soft);
+      border: 1px solid rgba(52, 211, 153, 0.25);
+      padding: 0.45rem 0.85rem;
+      border-radius: 999px;
+      margin-bottom: 1.5rem;
+    }
+
+    .badge::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--mint);
+      box-shadow: 0 0 12px var(--mint);
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.45; }
+    }
+
+    .hero h1 {
+      font-size: clamp(2.25rem, 5vw, 3.5rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      max-width: 14ch;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero h1 .hl {
+      background: linear-gradient(135deg, #c4b5fd 0%, #a78bfa 40%, #34d399 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-lead {
+      font-size: 1.125rem;
+      color: var(--muted);
+      max-width: 36rem;
+      margin-bottom: 2rem;
+    }
+
+    .hero-lead strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      font-weight: 600;
+      padding: 0.85rem 1.4rem;
+      border-radius: var(--radius);
+      text-decoration: none;
+      transition: transform 0.15s, box-shadow 0.2s, background 0.2s;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #8b5cf6, #6366f1);
+      color: #fff;
+      border: none;
+      box-shadow: 0 8px 32px rgba(99, 102, 241, 0.35);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(99, 102, 241, 0.45);
+    }
+
+    .btn-ghost {
+      background: var(--surface);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .btn-ghost:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.12);
+    }
+
+    /* 카드 그리드 */
+    section {
+      padding: 3rem 0;
+    }
+
+    section h2 {
+      font-size: 0.75rem;
+      font-family: var(--font-mono);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--dim);
+      margin-bottom: 1.25rem;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+    }
+
+    .card {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .card:hover {
+      border-color: rgba(167, 139, 250, 0.35);
+      transform: translateY(-3px);
+    }
+
+    .card-icon {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+
+    .card h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .card p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    /* 스택 / 태그 */
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 2rem;
+    }
+
+    .tag {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      padding: 0.35rem 0.65rem;
+      border-radius: 6px;
+      background: var(--accent-soft);
+      color: #ddd6fe;
+      border: 1px solid rgba(167, 139, 250, 0.2);
+    }
+
+    /* 인용 / 철학 */
+    .quote-block {
+      margin: 2rem 0;
+      padding: 2rem 2rem 2rem 1.5rem;
+      border-left: 3px solid var(--accent);
+      background: linear-gradient(90deg, var(--accent-soft), transparent);
+      border-radius: 0 var(--radius) var(--radius) 0;
+    }
+
+    .quote-block p {
+      font-size: 1.05rem;
+      font-style: italic;
+      color: var(--muted);
+      max-width: 42rem;
+    }
+
+    .quote-block cite {
+      display: block;
+      margin-top: 1rem;
+      font-size: 0.8rem;
+      font-style: normal;
+      font-family: var(--font-mono);
+      color: var(--dim);
+    }
+
+    /* 푸터 CTA */
+    .footer-cta {
+      margin-top: 2rem;
+      padding: 2.5rem;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: var(--surface);
+      text-align: center;
+    }
+
+    .footer-cta h3 {
+      font-size: 1.35rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-cta p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .email {
+      font-family: var(--font-mono);
+      font-size: 0.95rem;
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .email:hover {
+      text-decoration: underline;
+    }
+
+    footer.site {
+      padding: 2rem 0 0;
+      text-align: center;
+      font-size: 0.75rem;
+      font-family: var(--font-mono);
+      color: var(--dim);
+    }
+
+    @media (max-width: 640px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+
+      nav a {
+        margin-left: 0;
+        margin-right: 1rem;
+      }
+
+      .hero {
+        padding-top: 2.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-layer" aria-hidden="true"></div>
+  <div class="bg-grid" aria-hidden="true"></div>
+
+  <div class="wrap">
+    <header>
+      <div class="logo">DEV<span>×</span>DESIGN</div>
+      <nav>
+        <a href="#craft">크래프트</a>
+        <a href="#focus">포커스</a>
+        <a href="#contact">연락</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="badge">Design-first developer</div>
+      <h1>코드로 <span class="hl">감각</span>을<br />구현합니다</h1>
+      <p class="hero-lead">
+        저는 <strong>개발자</strong>이면서, <strong>디자인에 특화</strong>되어 있습니다.
+        레이아웃·타이포·모션·접근성을 한 흐름으로 다루며, 제품의 첫인상과 사용 경험을 동시에 다듬습니다.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#contact">함께 이야기하기</a>
+        <a class="btn btn-ghost" href="#craft">무엇을 하는지 보기</a>
+      </div>
+      <div class="tags" aria-label="관심 영역">
+        <span class="tag">UI / UX</span>
+        <span class="tag">Design systems</span>
+        <span class="tag">Frontend craft</span>
+        <span class="tag">Motion</span>
+        <span class="tag">A11y</span>
+      </div>
+    </section>
+
+    <section id="craft">
+      <h2>Craft</h2>
+      <div class="grid-3">
+        <article class="card">
+          <div class="card-icon">01 — 시각 언어</div>
+          <h3>일관된 디자인 시스템</h3>
+          <p>토큰·컴포넌트·패턴을 정리해 팀과 제품이 같은 리듬으로 움직이게 합니다. 예쁜 화면보다 <em>반복 가능한 아름다움</em>을 지향합니다.</p>
+        </article>
+        <article class="card">
+          <div class="card-icon">02 — 구현 품질</div>
+          <h3>픽셀에 가까운 프론트엔드</h3>
+          <p>반응형, 성능, 인터랙션 디테일까지 놓치지 않습니다. 디자인 의도가 코드에서 흐트러지지 않도록 끝까지 맞춥니다.</p>
+        </article>
+        <article class="card">
+          <div class="card-icon">03 — 사용자 관점</div>
+          <h3>경험을 완성하는 디테일</h3>
+          <p>로딩·피드백·오류 상태까지 설계합니다. 보이지 않는 곳까지 신경 쓰는 것이 진짜 완성도라고 믿습니다.</p>
+        </article>
+      </div>
+
+      <blockquote class="quote-block">
+        <p>“좋은 제품은 기능만으로 설명되지 않습니다. 손에 닿는 감각, 눈에 들어오는 질서, 그리고 그걸 받쳐 주는 견고한 코드가 함께할 때 비로소 완성됩니다.”</p>
+        <cite>— 크래프트에 대한 나의 기준</cite>
+      </blockquote>
+    </section>
+
+    <section id="focus">
+      <h2>Focus</h2>
+      <div class="grid-3">
+        <article class="card">
+          <div class="card-icon">Stack</div>
+          <h3>기술 스택</h3>
+          <p>프레임워크·스타일링·번들링 등 프로젝트에 맞는 도구를 고릅니다. 도구는 수단이고, 기준은 항상 사용자 경험입니다.</p>
+        </article>
+        <article class="card">
+          <div class="card-icon">Collaboration</div>
+          <h3>디자이너와의 협업</h3>
+          <p>피그마·스펙·프로토타입을 존중하고, 구현 가능성과 대안을 함께 제안합니다. 말이 통하는 개발자가 되는 것을 목표로 합니다.</p>
+        </article>
+        <article class="card">
+          <div class="card-icon">Growth</div>
+          <h3>계속 배우는 감각</h3>
+          <p>트렌드를 맹목적으로 따르기보다, 맥락에 맞는 미학과 기술을 선택합니다. 배움은 선택이 아니라 습관입니다.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="footer-cta">
+        <h3>프로젝트나 협업 제안이 있다면</h3>
+        <p>짧은 메일 한 통이면 시작할 수 있습니다. 포트폴리오 링크나 레퍼런스를 함께 보내주세요.</p>
+        <a class="email" href="mailto:hello@example.com">hello@example.com</a>
+      </div>
+      <footer class="site">© 2026 · Crafted with code & care</footer>
+    </section>
+  </div>
+</body>
+</html>
