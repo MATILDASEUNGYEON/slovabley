@@ -1,0 +1,10 @@
+.section.dark {
+  background: #8b4500;
+}
+
+.contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 28px;
+}

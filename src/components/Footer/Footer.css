@@ -1,0 +1,9 @@
+footer {
+  width: 100%;
+  background: #7a3d00;
+  padding: 28px 40px;
+  text-align: center;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.35);
+  font-family: "DM Sans", sans-serif;
+}

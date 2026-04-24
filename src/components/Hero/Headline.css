@@ -1,0 +1,37 @@
+.headline-section {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  padding: 0 20px 80px;
+  width: 100%;
+  max-width: 700px;
+}
+
+.big-headline {
+  font-family: "DM Serif Display", serif;
+  font-size: clamp(52px, 10vw, 88px);
+  color: #f5c842;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+}
+
+.sub-text {
+  font-family: "DM Sans", sans-serif;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.7;
+  letter-spacing: 0.01em;
+}
+
+.sub-text a {
+  color: rgba(255, 255, 255, 0.75);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+@media (max-width: 480px) {
+  .big-headline {
+    font-size: 40px;
+  }
+}

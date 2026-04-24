@@ -1,0 +1,50 @@
+.section {
+  width: 100%;
+  background: #c06800;
+  padding: 80px 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.section-inner {
+  max-width: 680px;
+  width: 100%;
+}
+
+.section-label {
+  font-family: "DM Sans", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 20px;
+}
+
+.section-title {
+  font-family: "DM Serif Display", serif;
+  font-size: 42px;
+  color: #f5c842;
+  margin-bottom: 24px;
+  line-height: 1.15;
+}
+
+.section-body {
+  font-family: "DM Sans", sans-serif;
+  font-size: 17px;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.75;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  margin-top: 40px;
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: 60px 24px;
+  }
+}

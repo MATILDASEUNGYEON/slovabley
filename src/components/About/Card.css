@@ -1,0 +1,25 @@
+.card {
+  background: rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(255, 200, 80, 0.2);
+  border-radius: 16px;
+  padding: 24px 20px;
+}
+
+.card-icon {
+  font-size: 28px;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.card-title {
+  font-family: "DM Serif Display", serif;
+  font-size: 18px;
+  color: #f5c842;
+  margin-bottom: 8px;
+}
+
+.card-desc {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.6;
+}

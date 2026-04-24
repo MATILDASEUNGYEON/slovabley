@@ -1,0 +1,25 @@
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 20px;
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 200, 80, 0.15);
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 15px;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.contact-item:hover {
+  background: rgba(0, 0, 0, 0.28);
+}
+
+.contact-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #f5c842;
+  flex-shrink: 0;
+}

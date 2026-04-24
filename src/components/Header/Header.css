@@ -1,0 +1,12 @@
+.site-name {
+  position: fixed;
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: "DM Sans", sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  color: #f5c842;
+  letter-spacing: 0.05em;
+  z-index: 100;
+}

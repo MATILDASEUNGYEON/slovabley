@@ -1,0 +1,44 @@
+.tv-screen {
+  width: 100%;
+  aspect-ratio: 4/3;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  background: #111;
+}
+
+canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border-radius: 12px;
+}
+
+.scan-lines {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 3px,
+    rgba(0, 0, 0, 0.18) 3px,
+    rgba(0, 0, 0, 0.18) 4px
+  );
+  pointer-events: none;
+  border-radius: 12px;
+}
+
+.screen-glare {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  width: 45%;
+  height: 30%;
+  background: radial-gradient(
+    ellipse at 30% 30%,
+    rgba(255, 255, 255, 0.09) 0%,
+    transparent 70%
+  );
+  border-radius: 8px;
+  pointer-events: none;
+}
